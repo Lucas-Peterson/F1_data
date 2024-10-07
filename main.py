@@ -74,11 +74,18 @@ async def plot_speeds():
 
 # Asynchronous function for printing speed data
 async def print_speeds():
-    await asyncio.sleep(0.1)
-    print(f"Verstappen's Max Speed: {max_speed_ver:.2f} km/h")
-    print(f"Verstappen's Min Speed: {min_speed_ver:.2f} km/h")
-    print(f"Piastri's Max Speed: {max_speed_pia:.2f} km/h")
-    print(f"Piastri's Min Speed: {min_speed_pia:.2f} km/h")
+    fastest_ver_lap_time = ver_laps['LapTime']
+    fastest_pia_lap_time = pia_laps['LapTime']
+
+    # Print max and min speeds for both drivers with colors
+    print(f"\033[34mVerstappen's Max Speed: {max_speed_ver:.2f} km/h\033[0m")  # Blue
+    print(f"\033[34mVerstappen's Min Speed: {min_speed_ver:.2f} km/h\033[0m")  # Blue
+    print(f"\033[34mVerstappen's Fastest Lap Time: {fastest_ver_lap_time}\033[0m")  # Blue
+
+    print(f"\033[33mPiastri's Max Speed: {max_speed_pia:.2f} km/h\033[0m")  # Yellow
+    print(f"\033[33mPiastri's Min Speed: {min_speed_pia:.2f} km/h\033[0m")  # Yellow
+    print(f"\033[33mPiastri's Fastest Lap Time: {fastest_pia_lap_time}\033[0m")  # Yellow
+
 
 
 # Main function to run asynchronous tasks
